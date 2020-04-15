@@ -1,0 +1,32 @@
+#      http://localhost:9098/h2-console  to view H2 DB in UI
+spring:
+  profiles: h2
+  
+  datasource:
+    url: jdbc:h2:mem:h2
+    username: h2
+    password: h2
+    driverClassName: org.h2.Driver
+#    driver-class-name: com.mysql.jdbc.Driver
+    name: h2
+#    initialization-mode: never
+#    url: jdbc:h2:mem:testdb  # default url
+# h2.console.enabled=true is required to access the DB through UI
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+    
+# Hibernate ddl auto (create, create-drop, update)
+      ddl-auto: update
+      
+    show-sql: true
+    
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        
+        
+# Naming strategy
+#spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy

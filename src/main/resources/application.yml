@@ -1,0 +1,65 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+#  security:
+#    user:
+#      name: user
+#      password: user
+  datasource:
+    platform: h2
+#    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;LOCK_TIMEOUT=2500;AUTOCOMMIT=OFF;DATABASE_TO_UPPER=true;
+#    url: jdbc:postgresql://localhost:5432/ftpdb
+#    username: postgres
+#    password: postgres
+  h2:
+    console:
+      enabled: true
+ftp:
+  basepath: /ftp
+  filestructure: input,output
+  fileExtensionSupport: txt,pif
+  passive: 
+    port: 2011-2050
+  address:
+# keystore
+  keystore:
+    filename: /keystore.jks
+    password: password
+    keypassword: keypassword
+    
+  rest:
+    apibasepath: api/v1/ftp/ftpuser
+    filestoragebasepath: api/v1/ftp/ftpfile
+  server:
+    port: 21
+    name: ftp.mydomain.com
+    protocol: TLS Implicit Encryption
+    
+  password:
+    isSpecialCharacterUsed: false
+    specialcharacter: '!@#$%'
+    length: 30
+    strength: 31
+#   key sizes of 16, 24, 32 bytes only
+  secretkeyspec: secretkeyspec123
+  
+oauth2:
+  jwt:
+    clientId: oath2Client
+    client-secret: secret
+    signing-key: 123
+    scope: read,write
+    authorities: ROLE_CLIENT,ROLE_TRUSTED_CLIENT,ROLE_USER,ROLE_ADMIN
+    authorizedGrantTypes: password,authorization_code,refresh_token
+#    accessTokenValidititySeconds: 43200 #12 hours
+#    refreshTokenValiditySeconds: 2592000 #30 days
+    accessTokenValidititySeconds: 600
+    refreshTokenValiditySeconds: 180
+  
+server:
+  port: 8070
+  servlet:
+    context-path: /FTP

@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "ftp",
+    "type": "java.util.Map",
+    "description": "A description for 'ftp'"
+  },
+  {
+    "name": "oauth2",
+    "type": "java.util.Map",
+    "description": "A description for 'oauth2'"
+  }
+]}
